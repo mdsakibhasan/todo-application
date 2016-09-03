@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'TodoController@index');
+Route::post('/', 'TodoController@store');
+Route::get('/{id}/edit', 'TodoController@edit');
 
-Route::get('home', 'HomeController@index');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
