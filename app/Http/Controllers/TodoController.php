@@ -69,16 +69,12 @@ class TodoController extends Controller {
 			return redirect('/');
 		}
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
-		//
+		$response=Task::find($id)->delete();
+		if($response){
+			return redirect('/');
+		}
 	} 
 
 }

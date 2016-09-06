@@ -26,7 +26,10 @@
 						<td>{{$row->status}}</td>
 						<td>
 							<a href="{{route('getEditRoute',$row->id)}}" class="btn btn-warning">Edit</a>
-							<a href="" class="btn btn-danger">Delet</a>
+							<form action="{{route('deleteTask',$row->id)}}" method="POST" style="display:inline;" onsubmit="if(confirm('delete are your sure ?')) {return true} else {return false};">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<button type="submit" class="btn btn-danger">Delete</button>
+							</form>
 						</td>
 					</tr>
 				<?php $i=$i+1; ?>

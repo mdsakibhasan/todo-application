@@ -17,6 +17,8 @@ Route::post('/', 'TodoController@store');
 Route::get('/{id}/edit',['as'=>'getEditRoute','uses'=>'TodoController@edit']);
 Route::post('/{id}/edit',['as'=>'postEditRoute','uses'=>'TodoController@update']);
 
+Route::post('/{id}/delete',['as'=>'deleteTask','uses'=>'TodoController@destroy']);
+
 
 
 Route::controllers([
