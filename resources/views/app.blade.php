@@ -40,17 +40,22 @@
 	</nav>
 	
 	@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops ofss!</strong>There are some problems with input <br><br>
-							<ul>
-								@foreach($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach	
-							</ul>
-						</div>
+		<div class="alert alert-danger">
+			<strong>Whoops ofss!</strong>There are some problems with input <br><br>
+			<ul>
+				@foreach($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach	
+			</ul>
+		</div>
 	@endif
 
-
+	<!-- here is the flash massage  -->
+	@if(Session::has('success'))
+		<div class="alert alert-success">
+			{{Session::get('success')}}
+		</div>
+	@endif
 
 
 	@yield('content')

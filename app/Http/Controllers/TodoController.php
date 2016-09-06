@@ -36,7 +36,7 @@ class TodoController extends Controller {
 		];
 		$response=Task::create($data);
 		if($response){
-			return redirect()->back();
+			return redirect()->back()->with('success','Task created successfully!!!');
 		}
 	}
 
@@ -66,14 +66,14 @@ class TodoController extends Controller {
 		];
 		$response=Task::find($id)->update($data);
 		if($response){
-			return redirect('/');
+			return redirect('/')->with('success','NOW Task updated sucessfully');
 		}
 	}
 	public function destroy($id)
 	{
 		$response=Task::find($id)->delete();
 		if($response){
-			return redirect('/');
+			return redirect('/')->with('success','Task Deleted sucessfully !!!!!!!!!!!!!!!!!!!');
 		}
 	} 
 
