@@ -25,7 +25,7 @@
 						<td>{{$row->name}}</td>
 						<td>{{$row->status}}</td>
 						<td>
-							<a href="" class="btn btn-warning">Edit</a>
+							<a href="{{route('getEditRoute',$row->id)}}" class="btn btn-warning">Edit</a>
 							<a href="" class="btn btn-danger">Delet</a>
 						</td>
 					</tr>

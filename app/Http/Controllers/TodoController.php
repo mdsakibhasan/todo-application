@@ -29,7 +29,7 @@ class TodoController extends Controller {
 
 
 	public function store(CreateTaskRequest $request)
-	{
+	{			
 		$data=[
 			'name'=>Input::get('name'),
 			'status'=>'incomplet'
@@ -54,18 +54,20 @@ class TodoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$data=Task::find($id);
+		return view('todo-edit')->with('data',$data);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+	public function update(CreateTaskRequest $request,$id)
 	{
-		//
+		$data=[
+			'name'=>Input::get('name'),
+			'status'=>Input::get('status')
+		];
+		$response=Task::find($id)->update($data);
+		if($response){
+			return redirect('/');
+		}
 	}
 
 	/**
@@ -77,6 +79,6 @@ class TodoController extends Controller {
 	public function destroy($id)
 	{
 		//
-	}
+	} 
 
 }

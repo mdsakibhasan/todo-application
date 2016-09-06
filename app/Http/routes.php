@@ -13,7 +13,9 @@
 
 Route::get('/', 'TodoController@index');
 Route::post('/', 'TodoController@store');
-Route::get('/{id}/edit', 'TodoController@edit');
+
+Route::get('/{id}/edit',['as'=>'getEditRoute','uses'=>'TodoController@edit']);
+Route::post('/{id}/edit',['as'=>'postEditRoute','uses'=>'TodoController@update']);
 
 
 
